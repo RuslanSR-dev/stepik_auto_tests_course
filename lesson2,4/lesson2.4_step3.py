@@ -15,4 +15,5 @@ try:
 
     assert 'successful' in message.text
 finally:
+    time.sleep(5)
     browser.close()
