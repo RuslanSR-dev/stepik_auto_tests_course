@@ -8,21 +8,23 @@ try:
     browser = webdriver.Chrome()
     browser.get(link)
 
-    input = browser.find_element(By.XPATH, "//input[@id='login']")
-    input.send_keys("salakhov.rr")
+    login = browser.find_element(By.XPATH, "//input[@id='login']")
+    login.send_keys("salakhov.rr")
 
-    input2 = browser.find_element(By.XPATH, "//input[@id='password']")
-    input2.send_keys("yQ7u67cKL@_2w")
+    password = browser.find_element(By.XPATH, "//input[@id='password']")
+    password.send_keys("yQ7u67cKL@_2w")
 
-    input3 = browser.find_element(By.XPATH, "//button[@class='btn btn-lg btn-primary ladda-button']")
-    input3.click()
+    button = browser.find_element(By.XPATH, "//button[@class='btn btn-lg btn-primary ladda-button']")
+    button.click()
 
-    input4 = browser.find_element(By.XPATH, "//div[@class='demo-navbar-user nav-item dropdown']/a")
-    input4.click()
+    browser.implicitly_wait(5)
+    new_request = browser.find_element(By.XPATH, "//*[contains(@class, 'k-grid-column-menu k-grid-filter')]")
+    new_request.click()
+    #
+    # input5 = browser.find_element(By.XPATH, "//a/i[@class='ion ion-ios-log-out text-danger']/..")
+    # input5.click()
 
-    input5 = browser.find_element(By.XPATH, "//a/i[@class='ion ion-ios-log-out text-danger']/..")
-    input5.click()
-
+    #fghkl
 finally:
-    time.sleep(10)
+    time.sleep(15)
     browser.close()
