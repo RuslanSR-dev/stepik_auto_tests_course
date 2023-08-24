@@ -1,23 +1,16 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-import time
-
-link = "https://sdesk.qa.eft-pos.ru/requests"
-
-try:
-    driver = webdriver.Chrome()
-    driver.get(link)
-
-    login = driver.find_element(By.XPATH, "//input[contains(@id, 'login')]")
-    login.send_keys("salakhov.rr")
-    password = driver.find_element(By.XPATH, "//input[contains(@id, 'password')]")
-    password.send_keys("yQ7u67cKL@_2w")
-    button = driver.find_element(By.XPATH, "")
+import unittest
+from my_sum import sum
 
 
+class TestSum(unittest.TestCase):
+    def test_list_int(self):
+        """
+        Проверьте, может ли он суммировать список целых чисел
+        """
+        data = [1, 2, 3]
+        result = sum(data)
+        self.assertEquals(result, 6)
 
-    input = driver.find_element(By.XPATH, "//div[contains(text(), 'Новая заявка')]").click()
 
-finally:
-    time.sleep(5)
-    driver.close()
+if __name__ == "__main__":
+    unittest.main()
